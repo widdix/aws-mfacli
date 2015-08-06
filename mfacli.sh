@@ -38,7 +38,8 @@ unset AWS_SESSION_TOKEN
 unset AWS_SECURITY_TOKEN
 
 export AWS_DEFAULT_REGION=$DEFAULT_REGION
-
+export AWS_ACCESS_KEY_ID=$ACCESS_KEY_ID
+export AWS_SECRET_ACCESS_KEY=$SECRET_ACCESS_KEY
 
 CRED=$(aws sts get-session-token --serial-number "arn:aws:iam::$ACCOUNT_ID:mfa/$USERNAME" --token-code $1 --query [Credentials.SessionToken,Credentials.AccessKeyId,Credentials.SecretAccessKey] --output text)
 
