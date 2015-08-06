@@ -48,7 +48,7 @@ export AWS_SECRET_ACCESS_KEY=$(echo $CRED | cut -d ' ' -f 3)
 export AWS_SESSION_TOKEN=$(echo $CRED | cut -d ' ' -f 1)
 export AWS_SECURITY_TOKEN=$(echo $CRED | cut -d ' ' -f 1)
 
-CRED=$(aws sts assume-role --role-arn "arn:aws:iam::$2:role/$3" --role-session-name mfacli --query [Credentials.SessionToken,Credentials.AccessKeyId,Credentials.SecretAccessKey] --output text )
+CRED=$(aws sts assume-role --role-arn "arn:aws:iam::$2:role/$3" --role-session-name mfacli --query [Credentials.SessionToken,Credentials.AccessKeyId,Credentials.SecretAccessKey] --output text)
 
 export AWS_ACCESS_KEY_ID=$(echo $CRED | cut -d ' ' -f 2)
 export AWS_SECRET_ACCESS_KEY=$(echo $CRED | cut -d ' ' -f 3)
