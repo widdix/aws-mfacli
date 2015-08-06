@@ -2,16 +2,12 @@
 
 The use AWS CLI with Role Delegation protected by MFA you need to:
 
-1. Own an IAM user
-1. Get a session token from STS
-3. Assume a role in a account you want to work with
+1. Get a session token from STS for an IAM user
+2. Assume a role in a account you want to work with
 
 This little script helps you to achieve the goal of using the AWS CLI in a MFA protected way.
 
-
 ## Installation
-
-### Linux & Mac OS X
 
 ```
 mkdir -p ~/.aws/
@@ -23,11 +19,11 @@ chmod 700 ~/.aws/mfacli.sh
 
 Open `~/.aws/mfacli.sh`:
 
-* `DEFAULT_REGION`
-* `ACCOUNT_ID`
-* `USERNAME`
-* `ACCESS_KEY_ID`
-* `SECRET_ACCESS_KEY`
+* `DEFAULT_REGION`: e.g. eu-west-1
+* `ACCOUNT_ID`: the 12 digit AWS account id
+* `USERNAME`: the name of your IAM user
+* `ACCESS_KEY_ID`: access key of your IAM user
+* `SECRET_ACCESS_KEY`: access secret of your IAM user
 
 Now we create a function for every Role you want to assume. Open your `~/.bash_profile`:
 
