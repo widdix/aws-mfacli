@@ -1,11 +1,15 @@
 # Multi-Factor Authentication (MFA) with Role Delegation for AWS CLI
 
+> If you only own a single AWS account, you’re facing a serious security risk! [This post](https://cloudonaut.io/your-single-aws-account-is-a-serious-risk/) will show you why this a problem and how you can solve it.
+
 The use AWS CLI with Role Delegation protected by MFA you need to:
 
-1. Get a session token from STS for an IAM user
-2. Assume a role in a account you want to work with
+* Get a session token from STS for an IAM user using MFA
+* Assume a role in a account you want to work with
 
-This little script helps you to achieve the goal of using the AWS CLI in a MFA protected way.
+![MFA with Role Delegation](./flow.png?raw=true "MFA with Role Delegation")
+
+This little script helps you to achieve the goal of using the AWS CLI in a MFA protected way. 
 
 ## Installation
 
