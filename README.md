@@ -1,8 +1,8 @@
-# Multi-Factor Authentication (MFA) with Role Delegation for AWS CLI
+# Multi-factor authentication (MFA) with role delegation for AWS CLI
 
 > If you only own a single AWS account, you’re facing a serious security risk! [This post](https://cloudonaut.io/your-single-aws-account-is-a-serious-risk/) will show you why this a problem and how you can solve it.
 
-The use AWS CLI with Role Delegation protected by MFA you need to:
+The use AWS CLI with role delegation protected by MFA you need to:
 
 * Get a session token from STS for an IAM user using MFA
 * Assume a role in a account you want to work with
@@ -29,19 +29,21 @@ Open `~/.aws/mfacli.sh`:
 * `ACCESS_KEY_ID`: access key of your IAM user
 * `SECRET_ACCESS_KEY`: access secret of your IAM user
 
-Now we create a function for every Role you want to assume. Open your `~/.bash_profile`:
+Now we create a function for every role you want to assume. Open your `~/.bash_profile`:
 
 ```
 function aws_acc1() { . ~/.aws/mfacli.sh $1 <ACCOUNT 1 ID> <ROLE>; }
 ```
 
-If you want to assume a rolw in a different account, just add a line to your `~/.bash_profile`:
+If you want to assume a role in a different account, just add a line to your `~/.bash_profile`:
 
 ```
 function aws_acc2() { . ~/.aws/mfacli.sh $1 <ACCOUNT 2 ID> <ROLE>; }
 ```
 
 ## Usage
+
+In your Terminal, type:
 
 ```
 aws_acc1 <TOKEN>
