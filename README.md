@@ -11,6 +11,8 @@ The use AWS CLI with role delegation protected by MFA you need to:
 
 This little script helps you to achieve the goal of using the AWS CLI in a MFA protected way. 
 
+** AWS CLI has built in support for MFA and role delegation. THis script is no longer needed! Scroll to the bottom to see how to configure AWS CLI!**
+
 ## Installation
 
 ```
@@ -48,3 +50,29 @@ In your Terminal, type:
 ```
 aws_acc1 <TOKEN>
 ```
+
+## Configure AWS CLI with MFA and role delegation
+
+Replace the following placeholders in the `~/.aws/config` section:
+
+* `<DEFAULT_REGION>`: e.g. eu-west-1
+* `<BASTION_ACCOUNT_ID>`: the 12 digit AWS account id of your bastion account
+* `<USERNAME>`: the name of your IAM user in the bastion account
+* `<ACCESS_KEY_ID>`: access key of your IAM user in the bastion account
+* `<SECRET_ACCESS_KEY>`: access secret of your IAM user in the bastion account
+* `<ACCOUNT1_ID>`: the 12 digit AWS account id
+
+Open `~/.aws/config`:
+
+```
+[profile bastion]
+region = <DEFAULT_REGION>
+aws_access_key_id = <ACCESS_KEY_ID>
+aws_secret_access_key = <SECRET_ACCESS_KEY>
+[profile account1]
+source_profile = bastion
+role_arn = arn:aws:iam::<ACCOUNT1_ID>:role/<ROLE>
+mfa_serial = arn:aws:iam::<BASTION_ACCOUNT_ID>:mfa/<USERNAME>
+```
+
+If you want to interact with the CLI add `--profile account1` to your call like `aws --profile account1 s3 ls`.
