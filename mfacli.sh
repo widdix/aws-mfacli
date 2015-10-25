@@ -2,7 +2,48 @@
 
 #######################################################
 #                                                     #
-#                    Configuration                    #
+#                     DEPRECATED                      #
+#                                                     #
+# Please don't use this script anymore. Instead       #
+# follow the instructions here: ttps://cloudonaut.io/ #
+# improve-aws-security-protect-your-keys-with-ease/   #
+#                                                     #
+#######################################################
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#######################################################
+#                                                     #
+#                   Configuration                     #
 #                                                     #
 #######################################################
 
